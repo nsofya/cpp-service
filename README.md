@@ -1,12 +1,15 @@
-## How to install tools
 ## How to build and run
 
-1. Install [conan](https://conan.io) package manager 
-2. Build
+1. Install [conan](https://conan.io) package manager
+2. Init
+```
+conan profile detect
+```
+3. Build
 ```
 ./build.sh
 ```
-3. Run
+4. Run
 ```
 ./build/server
 ```
