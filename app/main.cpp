@@ -6,6 +6,7 @@
 #include <sstream>
 #include <yaml-cpp/yaml.h>
 #include <jwt-cpp/jwt.h>
+#include <jwt-cpp/traits/kazuho-picojson/defaults.h>
 #include <crow.h>
 
 class Config {
@@ -64,7 +65,7 @@ public:
 
         std::string token = auth_header.substr(7);
         try {
-            auto decoded = jwt::decode(token);
+            auto decoded = jwt::decode<jwt::traits::kazuho_picojson>(token);
             auto verifier = jwt::verify()
                 .allow_algorithm(jwt::algorithm::hs256{secret});
             verifier.verify(decoded);
